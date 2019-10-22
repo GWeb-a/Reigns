@@ -7,14 +7,14 @@
 
 const express = require('express')
 const MongoClient = require('mongodb').MongoClient
-const mysql = require('mysql');
+    // const mysql = require('mysql');
 
 const app = express();
 
 const glb_port = 5000
 const glb_host_mysql = "localhost"
 const glb_usr_mysql = "root"
-const glb_pw_mysql = "Salut6789"
+const glb_pw_mysql = ""
 const glb_db = "Chevaux"
 const glb_url_mongo = "mongodb://localhost/cards"
 
@@ -28,12 +28,12 @@ const all_cards =
  "effect" : {"religion":10, "armé":0, "population":0, "argent": 0}
 }
 
-const con = mysql.createConnection({
-   host: glb_host_mysql,
-   user: glb_usr_mysql,
-   password: glb_pw_mysql,
-   database: glb_db
- });
+//const con = mysql.createConnection({
+//   host: glb_host_mysql,
+//   user: glb_usr_mysql,
+//   password: glb_pw_mysql,
+//   database: glb_db
+// });
 
 MongoClient.connect(glb_url_mongo, function(err, client) {
 

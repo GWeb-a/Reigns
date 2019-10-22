@@ -1,0 +1,23 @@
+{
+  "name": "reigns",
+  "version": "1.0.0",
+  "description": "Reigns api project for the universite catholique de lille",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GWeb-a/Reigns.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GWeb-a/Reigns/issues"
+  },
+  "homepage": "https://github.com/GWeb-a/Reigns#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongodb": "^3.3.3"
+  }
+}
