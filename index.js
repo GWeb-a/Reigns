@@ -6,93 +6,31 @@
 */
 
 const Init = require('./init.js')
-const glb = new Init(5000, 'localhost', 'mongodb://localhost/cards');
+const Getters = require('./routes/getters.js')
+const Setters = require('./routes/setters.js')
+const Updaters = require('./routes/updaters.js')
+const MongoUtil = require('./mongoUtil.js');
 
 const express = require('express')
-const MongoClient = require('mongodb').MongoClient
 
-const app = express();
+glb = new Init(5000, 'localhost', 'mongodb://localhost/cards');
+mongo = new MongoUtil(glb);
+app = express();
 
-var db_mongo = null
-var collection_mongo = null
+/* Lancement du serveur */
+mongo.connectToServer( (err, client) => {
+  if (err) console.log(err);
 
-const all_cards =
-{
- "imgName": "toto",
- "description": "ceci est la description de la carte",
- "effect" : {"religion":10, "armé":0, "population":0, "argent": 0}
-}
+  /* On crée les routes et on les met à disposition */
+  var getters = new Getters(app, mongo.getDb())
+  var setters = new Setters(app, mongo.getDb())
+  var updaters = new Updaters(app, mongo.getDb())
+} );
 
-MongoClient.connect(glb.getUrl(), function(err, client) {
-
-	console.log("-> Connected to mongo db")
-	console.log(err)
-	db_mongo = client.db('test')
-	collection_mongo = db_mongo.collection('cards')
-	collection_mongo.find().toArray((err, items) => {
-  		console.log(items)
-	})
-})
-
-app.get('/', (req, res) => {
-	var theDate = new Date()
-	res.send('Hello World!\nthis is a get request' + 'And it is :' + theDate + '\nThere is no route for /')
-
-});
-
-app.get('/cards', (req, res) => {
-    console.log("request GET /cards");
-    const cards_res = db_mongo.collection('cards')
-    cards_res.find().toArray((err, items) => {
-  		// console.log(items)
-  		res.send(items)
-	})
-	// res.send(all_cards);
-});
-
-app.get('/characters', (req, res) => {
-    console.log("request GET /characters");
-	// res.send("request GET /characters");
-	const cards_res = db_mongo.collection('Character')
-    cards_res.find().toArray((err, items) => {
-  		// console.log(items)
-  		res.send(items)
-	})
-});
-
-app.get('/objects', (req, res) => {
-    console.log("request GET /objects");
-	// res.send("request GET /objects");
-	const cards_res = db_mongo.collection('Object')
-    cards_res.find().toArray((err, items) => {
-  		// console.log(items)
-  		res.send(items)
-	})
-});
-
-app.post('/', function (req, res) {
-
-  	res.send('Got a POST request')
-})
-
-app.post('/save', function (req, res) {
-
-	res.send('Got a POST request')
-})
-
-
-app.put('/card', function (req, res) {
-	console.log("got a PUT request on /card")
-	res.send('Got a PUT request at /card')
-})
-
-app.put('/user', function (req, res) {
-  res.send('Got a PUT request at /user')
-})
-
+/* On écoute le serveur */
 app.listen(glb.getPort(), () => {
 	var theDate = new Date()
-  	console.log(`Example app listening on port ${glb.getPort()}!`)
+  console.log(`Example app listening on port ${glb.getPort()}!`)
 	console.log('the server has started');
-	console.log("the server start at : " + theDate)
+	console.log("the server started at : " + theDate)
 });
