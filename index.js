@@ -5,14 +5,13 @@
 * @Last Modified time: 2019-10-22 09:30:45
 */
 
+const Init = require('./init.js')
+const glb = new Init(5000, 'localhost', 'mongodb://localhost/cards');
+
 const express = require('express')
 const MongoClient = require('mongodb').MongoClient
 
 const app = express();
-
-const glb_port = 5000
-const glb_host_mysql = "localhost"
-const glb_url_mongo = "mongodb://localhost/cards"
 
 var db_mongo = null
 var collection_mongo = null
@@ -24,7 +23,7 @@ const all_cards =
  "effect" : {"religion":10, "armé":0, "population":0, "argent": 0}
 }
 
-MongoClient.connect(glb_url_mongo, function(err, client) {
+MongoClient.connect(glb.getUrl(), function(err, client) {
 
 	console.log("-> Connected to mongo db")
 	console.log(err)
@@ -71,10 +70,6 @@ app.get('/objects', (req, res) => {
 	})
 });
 
-app.get('/gianni', (req, res) => {
-	res.send("bonjour gianni")
-});
-
 app.post('/', function (req, res) {
 
   	res.send('Got a POST request')
@@ -95,9 +90,9 @@ app.put('/user', function (req, res) {
   res.send('Got a PUT request at /user')
 })
 
-app.listen(glb_port, () => {
+app.listen(glb.getPort(), () => {
 	var theDate = new Date()
-  	console.log(`Example app listening on port ${glb_port}!`)
+  	console.log(`Example app listening on port ${glb.getPort()}!`)
 	console.log('the server has started');
 	console.log("the server start at : " + theDate)
 });
