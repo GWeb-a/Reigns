@@ -9,3 +9,14 @@
         "argent" : 0.0
     }
 }
+{ 
+    "_id" : ObjectId("5dbfd4899c0414c4f80fc83b"), 
+    "name" : "Malédiction", 
+    "description" : "vous etes maudit", 
+    "effect" : {
+        "religion" : 0.0, 
+        " armé" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }
+}
