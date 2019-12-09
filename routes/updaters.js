@@ -4,6 +4,8 @@ class   Updaters {
     this.app = app;
     this.db_mongo = db_mongo;
     this.defineUpdaters()
+    console.log("dans le constructeur de updater")
+    console.log(typeof(app))
   }
 
   defineUpdaters() {
@@ -16,6 +18,7 @@ class   Updaters {
       res.send('Got a PUT request at /user')
     })
   }
+  
 }
 
 module.exports = Updaters
