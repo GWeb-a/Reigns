@@ -7,25 +7,25 @@
     "answer_no" : "Non", 
     "effect_generale" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
     "effect_yes" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 10.0
     }, 
     "effect_no" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
     "condition" : {
         "religion" : 10.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
@@ -43,25 +43,25 @@
     "answer_no" : "Notre chateau est bien comme ça", 
     "effect_yes" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 5.0, 
         "argent" : -20.0
     }, 
     "effect_generale" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
     "effect_no" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 10.0, 
         "argent" : 0.0
     }, 
     "condition" : {
         "religion" : 10.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
@@ -79,25 +79,25 @@
     "answer_no" : "Fuir ...", 
     "effect_generale" : {
         "religion" : -1.0, 
-        "armé" : -1.0, 
+        "army" : -1.0, 
         "population" : -1.0, 
         "argent" : -1.0
     }, 
     "effect_yes" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 5.0, 
         "argent" : -20.0
     }, 
     "effect_no" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 10.0, 
         "argent" : 0.0
     }, 
     "condition" : {
         "religion" : 10.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
@@ -115,25 +115,25 @@
     "answer_no" : "Assis !", 
     "effect_generale" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
     "effect_yes" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
     "effect_no" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
     "condition" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
@@ -151,25 +151,25 @@
     "answer_no" : "ne pas y aller", 
     "effect_generale" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
     "effect_yes" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
     "effect_no" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
     "condition" : {
         "religion" : 0.0, 
-        "armé" : 0.0, 
+        "army" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 

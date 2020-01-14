@@ -48,6 +48,22 @@ class   Setters {
       // })
       // res.send(all_cards);
     });
+
+    this.app.delete('/cards', (req, res) => {
+        console.log("request DELETE /cards with a parameter");
+        console.log("req body")
+        console.log(req.body)
+        console.log(req.query)
+        console.log(req.query.name)
+        res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name} mais dans la requete post`)
+      //   const cards_res = this.db_mongo.collection('cards')
+      //   cards_res.find().toArray((err, items) => {
+      //     // console.log(items)
+      //     res.send(items)
+      // })
+      // res.send(all_cards);
+    });
+
   }
 }
 

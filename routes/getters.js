@@ -153,8 +153,6 @@ class   Getters {
         })
     });
 
-
-
     this.app.get('/objects', (req, res) => {
         console.log("request GET /objects");
     	// res.send("request GET /objects");
@@ -165,20 +163,30 @@ class   Getters {
     	})
     });
 
-    this.app.get('/toto', (req, res) => {
-      let vartest = "toto"
-      console.log("reques test toto");
-      res.send(`Je vais renvoyer la carte qui porte le nom ${vartest} mais dans la requete post`)
+    this.app.get('/tituty', (req, res) => {
+        console.log("request GET /objects");
+        // res.send("request GET /objects");
+        const cards_res = this.db_mongo.collection('Object')
+        cards_res.find().toArray((err, items) => {
+              // console.log(items)
+              res.send(items)
+        })
     });
 
-    this.app.post('/cards', (req, res) => {
-        console.log("request POST /cards with a parameter");
-        console.log("req body")
-        console.log(req.body)
-        console.log(req.query)
-        console.log(req.query.name)
-        res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name} mais dans la requete post`)
-    });
+    // this.app.get('/toto', (req, res) => {
+    //   let vartest = "toto"
+    //   console.log("reques test toto");
+    //   res.send(`Je vais renvoyer la carte qui porte le nom ${vartest} mais dans la requete post`)
+    // });
+
+    // this.app.post('/cards', (req, res) => {
+    //     console.log("request POST /cards with a parameter");
+    //     console.log("req body")
+    //     console.log(req.body)
+    //     console.log(req.query)
+    //     console.log(req.query.name)
+    //     res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name} mais dans la requete post`)
+    // });
   }
 }
 
