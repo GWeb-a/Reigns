@@ -23,9 +23,44 @@ class   Getters {
     });
 
     /**
+    * @api {get} /cards/:name Request a specific card information according to the name
+	* @apiName GetCardsInfo
+    *
+    * @apiParam {String} name of the card.
+    *
+    * @apiSuccess {json} card information
+    * @apiSuccessExample Success-Response:
+    *     HTTP/1.1 200 OK
+    *     {
+    *       "firstname": "ceci est a ",
+    *       "lastname": "changer"
+    *     }
+    *
+    */
+
+    this.app.get('/cards/:name', (req, res) => {
+        console.log("request GET /cards with a parameter");
+        console.log("req body")
+        console.log(req);
+        console.log(req.query)
+        console.log(req.query.name)
+        const entryGiven = req.query.name
+        if (req.query.name == undefined) {
+          res.status(404).send("Not entry given ...");
+        }
+        // res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name}`)
+        const cards_res = this.db_mongo.collection('cards')
+        cards_res.find({ name: entryGiven }).toArray((err, items) => {
+        //     // console.log(items)
+          res.send(items)
+        })
+        // res.send(all_cards);
+    });
+
+    /**
      * @api {get} /cards Request all cards information
-     *
-     *
+	 * @apiName GetCardsAll
+     *	 
      * @apiSuccess {json} Cards contain all the data
      * @apiSuccessExample Success-Response:
      *     HTTP/1.1 200 OK
@@ -81,40 +116,6 @@ class   Getters {
         })
     });
 
-    /**
-    * @api {get} /cards/:name Request a specific card information according to the name
-    *
-    * @apiParam {String} name of the card.
-    *
-    * @apiSuccess {json} card information
-    * @apiSuccessExample Success-Response:
-    *     HTTP/1.1 200 OK
-    *     {
-    *       "firstname": "ceci est a ",
-    *       "lastname": "changer"
-    *     }
-    *
-    */
-
-    this.app.get('/cards/:name', (req, res) => {
-        console.log("request GET /cards with a parameter");
-        console.log("req body")
-        console.log(req);
-        console.log(req.query)
-        console.log(req.query.name)
-        const entryGiven = req.query.name
-        if (req.query.name == undefined) {
-          res.status(404).send("Not entry given ...");
-        }
-        // res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name}`)
-        const cards_res = this.db_mongo.collection('cards')
-        cards_res.find({ name: entryGiven }).toArray((err, items) => {
-        //     // console.log(items)
-          res.send(items)
-        })
-        // res.send(all_cards);
-    });
-
     this.app.get('/ends', (req, res) => {
         console.log("request GET /ends");
         const cards_res = this.db_mongo.collection('End')
@@ -162,6 +163,21 @@ class   Getters {
       		// console.log(items)
       		res.send(items)
     	})
+    });
+
+    this.app.get('/toto', (req, res) => {
+      let vartest = "toto"
+      console.log("reques test toto");
+      res.send(`Je vais renvoyer la carte qui porte le nom ${vartest} mais dans la requete post`)
+    });
+
+    this.app.post('/cards', (req, res) => {
+        console.log("request POST /cards with a parameter");
+        console.log("req body")
+        console.log(req.body)
+        console.log(req.query)
+        console.log(req.query.name)
+        res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name} mais dans la requete post`)
     });
   }
 }

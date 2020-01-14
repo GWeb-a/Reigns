@@ -19,6 +19,21 @@ class   Setters {
     	res.send('Got a POST request')
     })
 
+    this.app.get('/toto', (req, res) => {
+      let vartest = "toto"
+      console.log("reques test toto");
+      res.send(`Je vais renvoyer la carte qui porte le nom ${vartest} mais dans la requete post`)
+    });
+
+    this.app.post('/cards', (req, res) => {
+        console.log("request POST /cards with a parameter");
+        console.log("req body")
+        console.log(req.body)
+        console.log(req.query)
+        console.log(req.query.name)
+        res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name} mais dans la requete post`)
+    });
+
     this.app.post('/cards:name?', (req, res) => {
         console.log("request POST /cards with a parameter");
         console.log("req body")
