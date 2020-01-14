@@ -24,6 +24,7 @@ class   Getters {
 
     /**
     * @api {get} /cards/:name Request a specific card information according to the name
+	* @apiName GetCardsInfo
     *
     * @apiParam {String} name of the card.
     *
@@ -58,8 +59,8 @@ class   Getters {
 
     /**
      * @api {get} /cards Request all cards information
-     *
-     *
+	 * @apiName GetCardsAll
+     *	 
      * @apiSuccess {json} Cards contain all the data
      * @apiSuccessExample Success-Response:
      *     HTTP/1.1 200 OK
