@@ -3,21 +3,21 @@
     "name" : "The Diplomate", 
     "character" : "The Diplomate", 
     "description" : "Nos ennemis nous réclame un tribut. Acceptons nous leur demande ?", 
-    "answer-yes" : "Oui", 
-    "answer-no" : "Non", 
-    "effect-generale" : {
+    "answer_yes" : "Oui", 
+    "answer_no" : "Non", 
+    "effect_generale" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
-    "effect-yes" : {
+    "effect_yes" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 0.0, 
         "argent" : 10.0
     }, 
-    "effect-no" : {
+    "effect_no" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 0.0, 
@@ -39,21 +39,21 @@
     "name" : "The Princess", 
     "character" : "The Princess", 
     "description" : "Ma famille se moque de la taille de notre chateau, nous devons en construire un plus grand !", 
-    "answer-yes" : "Oui", 
-    "answer-no" : "Notre chateau est bien comme ça", 
-    "effect-yes" : {
+    "answer_yes" : "Oui", 
+    "answer_no" : "Notre chateau est bien comme ça", 
+    "effect_yes" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 5.0, 
         "argent" : -20.0
     }, 
-    "effect-generale" : {
+    "effect_generale" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
-    "effect-no" : {
+    "effect_no" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 10.0, 
@@ -75,21 +75,21 @@
     "name" : "The Skeleton", 
     "character" : "The Skeleton", 
     "description" : "Un squelette vous barre la route", 
-    "answer-yes" : "Engager le combat !", 
-    "answer-no" : "Fuir ...", 
-    "effect-generale" : {
+    "answer_yes" : "Engager le combat !", 
+    "answer_no" : "Fuir ...", 
+    "effect_generale" : {
         "religion" : -1.0, 
         "armé" : -1.0, 
         "population" : -1.0, 
         "argent" : -1.0
     }, 
-    "effect-yes" : {
+    "effect_yes" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 5.0, 
         "argent" : -20.0
     }, 
-    "effect-no" : {
+    "effect_no" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 10.0, 
@@ -111,21 +111,21 @@
     "name" : "The Dog", 
     "character" : "The Dog", 
     "description" : "Wouaf wouaf ! On dirait que le chien veut que vous le suiviez", 
-    "answer-yes" : "Le suivre ... ", 
-    "answer-no" : "Assis !", 
-    "effect-generale" : {
+    "answer_yes" : "Le suivre ... ", 
+    "answer_no" : "Assis !", 
+    "effect_generale" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
-    "effect-yes" : {
+    "effect_yes" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
-    "effect-no" : {
+    "effect_no" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 0.0, 
@@ -147,21 +147,21 @@
     "name" : "The Dog suivi", 
     "character" : "The Dog", 
     "description" : "Wouaf ! wouaf !! Wouaf !!! Le chien vous indique d'aller dans la foret noire", 
-    "answer-yes" : "Aller dans la foret noire", 
-    "answer-no" : "ne pas y aller", 
-    "effect-generale" : {
+    "answer_yes" : "Aller dans la foret noire", 
+    "answer_no" : "ne pas y aller", 
+    "effect_generale" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
-    "effect-yes" : {
+    "effect_yes" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 0.0, 
         "argent" : 0.0
     }, 
-    "effect-no" : {
+    "effect_no" : {
         "religion" : 0.0, 
         "armé" : 0.0, 
         "population" : 0.0, 
