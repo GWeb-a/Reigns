@@ -126,6 +126,22 @@ class   Getters {
       // res.send(all_cards);
     });
 
+    this.app.get('/ends/:name', (req, res) => {
+        console.log("request GET /ends");
+        const cards_res = this.db_mongo.collection('End')
+        
+        const entryGiven = req.query.name
+        if (req.query.name == undefined) {
+          res.status(404).send("Not entry given ...");
+        }
+
+        cards_res.find({ name: entryGiven }).toArray((err, items) => {
+          // console.log(items)
+          res.send(items)
+      })
+      // res.send(all_cards);
+    });
+
     this.app.get('/characters', (req, res) => {
       console.log("request GET /characters sans param");
       const cards_res = this.db_mongo.collection('Character')
@@ -174,11 +190,28 @@ class   Getters {
     this.app.get('/objects', (req, res) => {
         console.log("request GET /objects");
     	// res.send("request GET /objects");
-    	const cards_res = this.db_mongo.collection('Object')
+    	
+      const cards_res = this.db_mongo.collection('Object')
         cards_res.find().toArray((err, items) => {
       		// console.log(items)
       		res.send(items)
     	})
+    });
+
+    this.app.get('/objects/:name', (req, res) => {
+        console.log("request GET /objects");
+      // res.send("request GET /objects");
+      
+      const entryGiven = req.params.name
+      if (entryGiven == undefined) {
+          res.status(404).send("Not entry given ...");
+      }
+
+      const cards_res = this.db_mongo.collection('Object')
+        cards_res.find({ queryName: entryGiven }).toArray((err, items) => {
+          // console.log(items)
+          res.send(items)
+      })
     });
 
     this.app.get('/tituty', (req, res) => {
