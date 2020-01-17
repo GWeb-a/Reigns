@@ -129,20 +129,38 @@ class   Getters {
     this.app.get('/characters', (req, res) => {
       console.log("request GET /characters sans param");
       const cards_res = this.db_mongo.collection('Character')
-      cards_res.find().toArray((err, items) => {
-        console.log(items)
-        res.send(items)
-      })
+      console.log("req body")
+      console.log(req.query)
+      console.log(req.params.name)
+      console.log(req.query.name)
+      const response = {
+        queryName:req.query.queryname
+      };
+      if (response.queryName)
+      {
+         console.log(`il y a eu un parametre : ${(response.queryName)}`)
+         cards_res.find({"queryName" : response.queryName}).toArray((err, items) => {
+          // console.log(items)
+          res.send(items)
+          })
+      } else 
+      {
+        cards_res.find().toArray((err, items) => {
+          // console.log(items)
+          res.send(items)
+        })
+      }
     });
 
     this.app.get('/characters/:name', (req, res) => {
         console.log("request GET /characters/name avec param");
         console.log("req body")
         console.log(req.query)
+        console.log(req.params.name)
         console.log(req.query.name)
        
-        const entryGiven = req.query.name
-        if (req.query.name == undefined) {
+        const entryGiven = req.params.name
+        if (entryGiven == undefined) {
           res.status(404).send("Not entry given ...");
         }
         // res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name}`)
