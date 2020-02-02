@@ -4,8 +4,6 @@ class   Updaters {
     this.app = app;
     this.db_mongo = db_mongo;
     this.defineUpdaters()
-    console.log("dans le constructeur de updater")
-    console.log(typeof(app))
   }
 
   defineUpdaters() {
