@@ -27,27 +27,65 @@ class   Setters {
 
     this.app.post('/cards', (req, res) => {
         console.log("request POST /cards with a parameter");
-        console.log("req body")
-        console.log(req.body)
-        console.log(req.query)
-        console.log(req.query.name)
-        res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name} mais dans la requete post`)
+              let cards_res = this.db_mongo.collection('cards')
+      console.log("req body")
+      console.log(req.body)
+      console.log(req.query)
+      console.log(req.params.name)
+      console.log(req.query.name)
+      const question = {
+        queryName:req.body.queryName,
+        name: req.body.name,
+        character: req.body.character,
+        description: req.body.description,
+        answer_yes: req.body.yes,
+        answer_no: req.body.no,
+        "effect_generale": req.body.effectgen,
+        "effect_yes":req.body.effectyes,
+        "effect_no":req.body.effectno,
+        "condition":req.body.condition,
+        "nextCard":req.body.nextcard
+      };
+      console.log(question)
+      if (question.name == undefined || 
+          question.queryName == undefined || 
+          question.character == undefined || 
+          question.description == undefined)
+        {  
+          console.log("missing some parameter")
+          res.status(404).send('missing some parameter. mandatory parameters : desfr, name, queryname, img')
+      }
+      else (question)
+      {
+         console.log(`il y a eu un parametre : ${(question.queryName)}`)
+         console.log("je ninser rien pour le moment")
+         console.log(question["description-fr"])
+         cards_res.insertOne(question, function(err, resdb) {
+           if (err) throw err;
+            console.log("correctement inseré : ", question)
+            cards_res.find({"queryName" : question.queryName}, {_id: 0 }).toArray((err, items) => {
+              res.send(items)
+            });
+          });
+      }
+
+        //res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name} mais dans la requete post`)
     });
 
-    this.app.post('/cards:name?', (req, res) => {
-        console.log("request POST /cards with a parameter");
-        console.log("req body")
-        console.log(req.body)
-        console.log(req.query)
-        console.log(req.query.name)
-        res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name} mais dans la requete post`)
-        //   const cards_res = this.db_mongo.collection('cards')
-        //   cards_res.find().toArray((err, items) => {
-        //     // console.log(items)
-        //     res.send(items)
-        // })
-        // res.send(all_cards);
-    });
+    // this.app.post('/cards:name?', (req, res) => {
+    //     console.log("request POST /cards with a parameter");
+    //     console.log("req body")
+    //     console.log(req.body)
+    //     console.log(req.query)
+    //     console.log(req.query.name)
+    //     res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name} mais dans la requete post`)
+    //     //   const cards_res = this.db_mongo.collection('cards')
+    //     //   cards_res.find().toArray((err, items) => {
+    //     //     // console.log(items)
+    //     //     res.send(items)
+    //     // })
+    //     // res.send(all_cards);
+    // });
 
     this.app.post('/characters', (req, res) => {
       console.log("request POST /characters ");
@@ -63,9 +101,12 @@ class   Setters {
         img: req.body.img
       };
       console.log(question)
-      if (question.queryName == "" || question.name == "" || question.img == "")
-        res.status(404).send("bad parameter ...");
-      else if (question)
+      if (question.name == undefined || question.queryName == undefined || question.img === undefined)
+        {  
+          console.log("missing some poarameter")
+          res.status(404).send('missing some parameter. mandatory parameters : name, queryname, img')
+      }
+      else
       {
          console.log(`il y a eu un parametre : ${(question.queryName)}`)
          //cards_res.insert
@@ -82,8 +123,6 @@ class   Setters {
               res.send(items)
             });
           });
-      } else {
-        res.status(200).send('no param')
       }
       // else 
       // {
@@ -126,12 +165,33 @@ class   Setters {
         console.log(req.params.name)
         console.log(req.query.name)
         const cards_res = this.db_mongo.collection('Object')
-        cards_res.find().toArray((err, items) => {
-          // console.log(items)
-          //res.send(items)
+      const question = {
+        queryName:req.body.queryName,
+        name: req.body.name,
+        description: req.body.description,
+        effect: req.body.effect,
 
-          res.send(`J'ai bien recu une requete post sur objects/:name`)
-      })
+      };
+      console.log(question)
+      if (question.name == undefined || 
+          question.queryName == undefined || 
+          question.description === undefined)
+        {  
+          console.log("missing some parameter")
+          res.status(404).send('missing some parameter. mandatory parameters : desfr, name, queryname, img')
+      }
+      else (question)
+      {
+        console.log(`il y a eu un parametre : ${(question.queryName)}`)
+         console.log("je ninser rien pour le moment")
+         cards_res.insertOne(question, function(err, resdb) {
+           if (err) throw err;
+            console.log("correctement inseré : ", question)
+            cards_res.find({"queryName" : question.queryName}, {_id: 0 }).toArray((err, items) => {
+              res.send(items)
+            });
+          });
+      }
     });
 
     this.app.post('/ends', (req, res) => {

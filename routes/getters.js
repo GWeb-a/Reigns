@@ -43,16 +43,16 @@ class   Getters {
         console.log("req body")
         //console.log(req);
         //console.log(req.query)
-        console.log(req.query.name)
-        const entryGiven = req.query.name
+        console.log(req.params.name)
+        const entryGiven = req.params.name
 
-        if (req.query.name == "") {
+        if (req.params.name == "") {
           res.status(404).send("Not entry given ...");
         }
         console.log("c'est passé")
         // res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name}`)
         const cards_res = this.db_mongo.collection('cards')
-        cards_res.find({ name: entryGiven }, { projection: { _id: 0}}).toArray((err, items) => {
+        cards_res.find({ queryName: entryGiven }, { projection: { _id: 0}}).toArray((err, items) => {
         //     // console.log(items)
           res.send(items)
         })
@@ -107,15 +107,27 @@ class   Getters {
      */
     this.app.get('/cards', (req, res) => {
         console.log("request GET /cards et futur get card name");
-        console.log(req.query);
-        console.log(req.route);
-        //const queryGiven = req.query["name"]
-        //console.log("la query donné : ", queryGiven)
         const cards_res = this.db_mongo.collection('cards')
-        cards_res.find({}, { _id: 0 }).toArray((err, items) => {
-          // -> here it send all the cards
-          res.send(items)
-        })
+
+      const response = {
+        queryName:req.query.queryname
+      };
+      if (response.queryName)
+        {
+           console.log(`il y a eu un parametre : ${(response.queryName)}`)
+           cards_res.find({"queryName" : response.queryName}, { projection: { _id: 0}}).toArray((err, items) => {
+            res.send(items)
+            })
+        } 
+      else 
+        {
+          console.log("il n'y a pas eu de parametre")
+          cards_res.find({}, { projection: { _id: 0}}).toArray((err, items) => {
+            res.send(items)
+          })
+        }
+
+
     });
 
     this.app.get('/ends', (req, res) => {
@@ -146,10 +158,10 @@ class   Getters {
     this.app.get('/ends/:name', (req, res) => {
         console.log("request GET /ends avec param");
         const cards_res = this.db_mongo.collection('End')
-        console.log(req.query.name)
-        const entryGiven = req.query.name
-        console.log("donnée recu : ", req.query.name)
-        if (req.query.name == "") {
+        console.log(req.params.name)
+        const entryGiven = req.params.name
+        console.log("donnée recu : ", req.params.name)
+        if (req.params.name == "") {
           res.status(404).send("Not entry given ...");
         }
         console.log("received data")
@@ -188,6 +200,8 @@ class   Getters {
 
     this.app.get('/characters/:name', (req, res) => {
         console.log("request GET /characters/name avec param");
+        console.log(req.params.name)
+
         const entryGiven = req.params.name
         if (entryGiven == "") {
           res.status(404).send("Not entry given ...");
@@ -200,24 +214,39 @@ class   Getters {
 
     this.app.get('/objects', (req, res) => {
         console.log("request GET /objects");
-    	  // res.send("request GET /objects");
-    	
         const cards_res = this.db_mongo.collection('Object')
-        cards_res.find({}, { projection: { _id: 0}}).toArray((err, items) => {
-      		// console.log(items)
-      		res.send(items)
-    	})
+
+        console.log(req.query.queryname)
+        const response = {
+          queryName:req.query.queryname
+        };
+        if (response.queryName)
+          {
+           console.log(`il y a eu un parametre : ${(response.queryName)}`)
+           cards_res.find({"queryName" : response.queryName}, { projection: { _id: 0}}).toArray((err, items) => {
+            res.send(items)
+            })
+          } 
+          else
+          {
+           console.log("il n'y a pas eu de parametre dans request GET /objects")
+
+          cards_res.find({}, { projection: { _id: 0}}).toArray((err, items) => {
+      		  // console.log(items)
+      		  res.send(items)
+    	    })
+        }
     });
 
     this.app.get('/objects/:name', (req, res) => {
         console.log("request GET /objects");
         // res.send("request GET /objects");
-        
+        console.log(req.params)
         const entryGiven = req.params.name
+        console.log(entryGiven)
         if (entryGiven == "") {
             res.status(404).send("Not entry given ...");
         }
-
         const cards_res = this.db_mongo.collection('Object')
         cards_res.find({ queryName: entryGiven }, { projection: { _id: 0}}).toArray((err, items) => {
           // console.log(items)
