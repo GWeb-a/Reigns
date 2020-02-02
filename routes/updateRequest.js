@@ -24,7 +24,7 @@ class   UpdateRequest {
         // console.log(req.query)
         // console.log(req.query.name)
         const entryGiven = req.query.name
-        if (req.query.name == undefined) {
+        if (req.query.name == "") {
           res.status(404).send("Not entry given ...");
         }
         // res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name}`)
@@ -68,7 +68,7 @@ class   UpdateRequest {
         const cards_res = this.db_mongo.collection('End')
         
         const entryGiven = req.query.name
-        if (req.query.name == undefined) {
+        if (req.query.name == "") {
           res.status(404).send("Not entry given ...");
         }
 
@@ -115,7 +115,7 @@ class   UpdateRequest {
         console.log(req.query.name)
        
         const entryGiven = req.params.name
-        if (entryGiven == undefined) {
+        if (entryGiven == "") {
           res.status(404).send("Not entry given ...");
         }
         // res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name}`)
@@ -140,7 +140,7 @@ class   UpdateRequest {
         console.log("request PUT /objects");
         console.log(req.body)
       	const entryGiven = req.params.name
-      	if (entryGiven == undefined) {
+      	if (entryGiven == "") {
       	    res.status(404).send("Not entry given ...");
       	}
       	const cards_res = this.db_mongo.collection('Object')

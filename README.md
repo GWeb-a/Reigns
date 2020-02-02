@@ -1,6 +1,11 @@
 # Reigns
 Refonte du jeu Reigns en version mobile
 
+# Prérequis
+Le programme a besoin de :
+	- npm et node js 
+	- d'une base de donnée NoSQL Mongo db
+  
 ## Partie back office
 Pour faire fonctionner la partie back office de notre application, il faut tout d'abord installer le SGDB utilisé par celui ci: Mongo db 
 par exemple pour ubuntu

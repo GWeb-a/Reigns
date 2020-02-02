@@ -1,0 +1,6 @@
+# command to test the api
+curl -d '' -X POST http://127.0.0.1:5001/ends
+curl -d 'name=testgianniands' -X POST http://127.0.0.1:5001/ends
+curl -d 'name=testgianniands&desfr=rien dans la description' -X POST http://127.0.0.1:5001/ends
+curl -d 'queryName=testgianniands&name=testgianniands&desfr=rien dans la description' -X POST http://127.0.0.1:5001/ends
+curl -d 'queryName=testgianniands&name=testgianniands&img=rien&desfr=rien dans la description' -X POST http://127.0.0.1:5001/ends

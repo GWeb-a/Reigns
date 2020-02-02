@@ -33,7 +33,7 @@ class   DeleteRequest {
       // res.send("request GET /objects");
       
       const entryGiven = req.params.name
-      if (entryGiven == undefined) {
+      if (entryGiven == "") {
           res.status(404).send("Not entry given ...");
       }
 
