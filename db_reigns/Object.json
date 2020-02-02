@@ -1,0 +1,34 @@
+{
+    "name":"Grenier à grains",
+    "queryName": "grenier",
+    "description":"Permet d'éviter la famine",
+    "effect":
+    {
+    "religion":0,
+    "army":0,
+    "population":10,
+    "argent":0
+    }
+}
+{
+    "name":"Malédiction",
+    "queryName": "malediction",
+    "description":"vous etes maudit",
+    "effect":{
+    "religion":0,
+    "army":0,
+    "population":0,
+    "argent":0
+    }
+}
+{
+    "name":"Croisade",
+    "queryName": "croisade",
+    "description":"Vous etes en croisade",
+    "effect":{
+    "religion":0,
+    "army":0,
+    "population":-2,
+    "argent":2
+    }
+}

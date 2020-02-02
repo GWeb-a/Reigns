@@ -1,0 +1,180 @@
+{ 
+    "name" : "The Diplomate", 
+    "queryName": "thediplomateone",
+    "character" : "The Diplomate", 
+    "description" : "Nos ennemis nous réclame un tribut. Acceptons nous leur demande ?", 
+    "answer_yes" : "Oui", 
+    "answer_no" : "Non", 
+    "effect_generale" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "effect_yes" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 10.0
+    }, 
+    "effect_no" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "condition" : {
+        "religion" : 10.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "nextCard" : {
+        "yes" : "", 
+        "no" : ""
+    }
+}
+{ 
+    "name" : "The Princess", 
+    "queryName": "theprincessone",
+    "character" : "The Princess", 
+    "description" : "Ma famille se moque de la taille de notre chateau, nous devons en construire un plus grand !", 
+    "answer_yes" : "Oui", 
+    "answer_no" : "Notre chateau est bien comme ça", 
+    "effect_yes" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 5.0, 
+        "argent" : -20.0
+    }, 
+    "effect_generale" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "effect_no" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 10.0, 
+        "argent" : 0.0
+    }, 
+    "condition" : {
+        "religion" : 10.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "nextCard" : {
+        "yes" : "", 
+        "no" : ""
+    }
+}
+{ 
+    "name" : "The Skeleton", 
+    "queryName": "theskeletonmeetone",
+    "character" : "The Skeleton", 
+    "description" : "Un squelette vous barre la route", 
+    "answer_yes" : "Engager le combat !", 
+    "answer_no" : "Fuir ...", 
+    "effect_generale" : {
+        "religion" : -1.0, 
+        "army" : -1.0, 
+        "population" : -1.0, 
+        "argent" : -1.0
+    }, 
+    "effect_yes" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 5.0, 
+        "argent" : -20.0
+    }, 
+    "effect_no" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 10.0, 
+        "argent" : 0.0
+    }, 
+    "condition" : {
+        "religion" : 10.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "nextCard" : {
+        "yes" : "", 
+        "no" : ""
+    }
+}
+{ 
+    "name" : "The Dog", 
+    "queryName": "thedogone",
+    "character" : "The Dog", 
+    "description" : "Wouaf wouaf ! On dirait que le chien veut que vous le suiviez", 
+    "answer_yes" : "Le suivre ... ", 
+    "answer_no" : "Assis !", 
+    "effect_generale" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "effect_yes" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "effect_no" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "condition" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "nextCard" : {
+        "yes" : "The Dog suivi", 
+        "no" : ""
+    }
+}
+{ 
+    "name" : "The Dog suivi", 
+    "queryName": "thedogtwo",
+    "character" : "The Dog", 
+    "description" : "Wouaf ! wouaf !! Wouaf !!! Le chien vous indique d'aller dans la foret noire", 
+    "answer_yes" : "Aller dans la foret noire", 
+    "answer_no" : "ne pas y aller", 
+    "effect_generale" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "effect_yes" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "effect_no" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "condition" : {
+        "religion" : 0.0, 
+        "army" : 0.0, 
+        "population" : 0.0, 
+        "argent" : 0.0
+    }, 
+    "nextCard" : {
+        "yes" : "The Dog : la foret noire", 
+        "no" : "The Dog : second choice"
+    }
+}
