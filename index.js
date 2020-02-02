@@ -2,7 +2,7 @@
 * @Author: Baptiste Bertrand-Rapello
 * @Date:   2019-10-03 11:34:19
 * @Last Modified by:   Baptiste Bertrand-Rapello
-* @Last Modified time: 2020-01-17 23:36:55
+* @Last Modified time: 2020-02-02 22:09:05
 */
 
 const Init = require('./init.js')
@@ -25,17 +25,11 @@ mongo.connectToServer( (err, client) => {
   if (err) console.log(err);
 
   /* On crée les routes et on les met à disposition */
-  // console.log("egalite de app")
-  // console.log(app == app)
-  // console.log(app === app)
   var getters = new Getters(app, mongo.getDb())
   var setters = new Setters(app, mongo.getDb())
-  var updaters = new Updaters(app, mongo.getDb())
+  //var updaters = new Updaters(app, mongo.getDb())
   var uprequest = new UpdateReq(app, mongo.getDb())
-  console.log("connect to server ")
-  // console.log("egalite de app")
-  // console.log(updaters.getAppUpdater == app)
-  // console.log(updaters.getAppUpdater === app)
+  console.log("*** you can now connect to the api ***")
 } );
 
 /* On écoute le serveur */

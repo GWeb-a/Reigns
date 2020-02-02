@@ -5,20 +5,16 @@ class   Getters {
     this.app = app;
     this.db_mongo = db_mongo;
     this.defineGetters()
-    console.log("dans le constructeur de getter")
-    console.log(typeof(app))
   }
 
   defineGetters() {
     this.app.get('/', (req, res) => {
     	var theDate = new Date()
-    	//res.send('Hello World!\nthis is a get request' + 'And it is :' + theDate + '\nThere is no route for /')
       res.sendFile(path.join(__dirname, '../public/index.html'));
     });
 
     this.app.get('/apidoc/index.html', (req, res) => {
       var theDate = new Date()
-      //res.send('Hello World!\nthis is a get request' + 'And it is :' + theDate + '\nThere is no route for /')
       res.sendFile(path.join(__dirname, '../public/apidoc/index.html'));
     });
 
@@ -40,23 +36,16 @@ class   Getters {
 
     this.app.get('/cards/:name', (req, res) => {
         console.log("request GET /cards with a parameter");
-        console.log("req body")
-        //console.log(req);
-        //console.log(req.query)
         console.log(req.params.name)
         const entryGiven = req.params.name
 
         if (req.params.name == "") {
           res.status(404).send("Not entry given ...");
         }
-        console.log("c'est passé")
-        // res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name}`)
         const cards_res = this.db_mongo.collection('cards')
         cards_res.find({ queryName: entryGiven }, { projection: { _id: 0}}).toArray((err, items) => {
-        //     // console.log(items)
           res.send(items)
         })
-        // res.send(all_cards);
     });
 
     /**
@@ -148,11 +137,9 @@ class   Getters {
         {
         console.log("il n'y a pas eu de parametre")
         cards_res.find({}, { projection: { _id: 0}}).toArray((err, items) => {
-          // console.log(items)
           res.send(items)
         })
         }
-      // res.send(all_cards);
     });
 
     this.app.get('/ends/:name', (req, res) => {
@@ -166,18 +153,13 @@ class   Getters {
         }
         console.log("received data")
         cards_res.find({ queryName: entryGiven },  {'_id': false} ).toArray((err, items) => {
-          // console.log(items)
           res.send(items)
       })
-      // res.send(all_cards);
     });
 
     this.app.get('/characters', (req, res) => {
       console.log("request GET /characters sans param");
       const cards_res = this.db_mongo.collection('Character')
-      // console.log("req body")
-      // console.log(req.query)
-      // console.log(req.params.name)
       console.log(req.query.name)
       const response = {
         queryName:req.query.queryname
@@ -232,7 +214,6 @@ class   Getters {
            console.log("il n'y a pas eu de parametre dans request GET /objects")
 
           cards_res.find({}, { projection: { _id: 0}}).toArray((err, items) => {
-      		  // console.log(items)
       		  res.send(items)
     	    })
         }
@@ -264,20 +245,6 @@ class   Getters {
         })
     });
 
-    // this.app.get('/toto', (req, res) => {
-    //   let vartest = "toto"
-    //   console.log("reques test toto");
-    //   res.send(`Je vais renvoyer la carte qui porte le nom ${vartest} mais dans la requete post`)
-    // });
-
-    // this.app.post('/cards', (req, res) => {
-    //     console.log("request POST /cards with a parameter");
-    //     console.log("req body")
-    //     console.log(req.body)
-    //     console.log(req.query)
-    //     console.log(req.query.name)
-    //     res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name} mais dans la requete post`)
-    // });
   }
 }
 

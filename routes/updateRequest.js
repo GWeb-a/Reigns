@@ -5,8 +5,6 @@ class   UpdateRequest {
     this.app = app;
     this.db_mongo = db_mongo;
     this.defineUpdateRequest()
-    console.log("dans le constructeur de updaterequest")
-    console.log(typeof(app))
   }
 
   defineUpdateRequest() {
@@ -20,9 +18,6 @@ class   UpdateRequest {
         console.log("request PUT /cards with a parameter");
         console.log("req body")
         console.log(req.body)
-        // console.log(req);
-        // console.log(req.query)
-        // console.log(req.query.name)
         const entryGiven = req.query.name
         if (req.query.name == "") {
           res.status(404).send("Not entry given ...");
@@ -42,8 +37,6 @@ class   UpdateRequest {
         console.log(req.query);
         console.log(req.route);
         console.log(req.body)
-        //const queryGiven = req.query["name"]
-        //console.log("la query donné : ", queryGiven)
         const cards_res = this.db_mongo.collection('cards')
         cards_res.find({}, { _id: 0 }).toArray((err, items) => {
           // -> here it send all the cards
@@ -56,10 +49,8 @@ class   UpdateRequest {
         console.log(req.body)
         const cards_res = this.db_mongo.collection('End')
         cards_res.find().toArray((err, items) => {
-          // console.log(items)
           res.send(items)
       })
-      // res.send(all_cards);
     });
 
     this.app.put('/ends/:name', (req, res) => {
@@ -73,10 +64,9 @@ class   UpdateRequest {
         }
 
         cards_res.find({ name: entryGiven }).toArray((err, items) => {
-          // console.log(items)
           res.send(items)
       })
-      // res.send(all_cards);
+
     });
 
     this.app.put('/characters', (req, res) => {
@@ -94,13 +84,11 @@ class   UpdateRequest {
       {
          console.log(`il y a eu un parametre : ${(response.queryName)}`)
          cards_res.find({"queryName" : response.queryName}).toArray((err, items) => {
-          // console.log(items)
           res.send(items)
           })
       } else 
       {
         cards_res.find().toArray((err, items) => {
-          // console.log(items)
           res.send(items)
         })
       }
@@ -121,7 +109,6 @@ class   UpdateRequest {
         // res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name}`)
         const cards_res = this.db_mongo.collection('Character')
         cards_res.find({ queryName: entryGiven }).toArray((err, items) => {
-        //     // console.log(items)
           res.send(items)
         })
     });
@@ -159,20 +146,6 @@ class   UpdateRequest {
         })
     });
 
-    // this.app.put('/toto', (req, res) => {
-    //   let vartest = "toto"
-    //   console.log("reques test toto");
-    //   res.send(`Je vais renvoyer la carte qui porte le nom ${vartest} mais dans la requete post`)
-    // });
-
-    // this.app.post('/cards', (req, res) => {
-    //     console.log("request POST /cards with a parameter");
-    //     console.log("req body")
-    //     console.log(req.body)
-    //     console.log(req.query)
-    //     console.log(req.query.name)
-    //     res.send(`Je vais renvoyer la carte qui porte le nom ${req.query.name} mais dans la requete post`)
-    // });
   }
 }
 
