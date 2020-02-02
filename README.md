@@ -41,6 +41,11 @@ et ensuite de démarrer le server:
 ```
 $> node index.js
 ```
+Par défaut, le serveur écoute sur le port 
+```
+5001
+```
+
 ###  pour le développement
 nous pouvons utiliser nodemon, qui permet de redémarrer automatiquement le sezrver lorsque l'on modifie un fichier, pour cela il faut installer le packet correspondant.
 ```
